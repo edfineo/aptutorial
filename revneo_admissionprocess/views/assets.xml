@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<openerp>
+  <data>
+		<template id="mystyle" name="My style" inherit_id="website.assets_frontend">
+		    <xpath expr="link[last()]" position="after" priority="default">
+		        <link href="/revneo_admissionprocess/static/less/applications.less" rel="stylesheet" type="text/less"/>
+		    </xpath>
+		</template>
+	
+  </data>
+</openerp>

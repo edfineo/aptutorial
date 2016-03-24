@@ -1,0 +1,2 @@
+id;name;model_id:id;group_id:id;perm_read;perm_write;perm_create;perm_unlink
+access_ap_applications_model;ap_applications_model;model_ap_applications_model;group_ap_customer_facing;1;1;1;1

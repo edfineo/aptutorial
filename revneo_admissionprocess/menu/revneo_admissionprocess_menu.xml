@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+    
+    Action to open To-do Task list 
+	<act_window id="act_open_ap_applications_view"
+			name="Application"
+			res_model="ap.applications.model"
+			view_mode="tree,form" />
+    
+    
+       <menuitem id="menu_ap_admission_root" name="Applications"
+            sequence="10" />
+
+        <menuitem id="menu_ap_applications_main" name="Applications" parent="menu_ap_admission_root"
+            sequence="10" />
+
+        <menuitem id="menu_ap_applications_sub" name="Applications" parent="menu_ap_applications_main"
+            sequence="10" action="act_open_ap_applications_view"
+            />   
+    </data>
+</openerp>

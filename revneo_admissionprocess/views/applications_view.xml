@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+<data> 
+<record model='ir.ui.view' id='applications_view'>
+        <field name='name'>users form</field>
+        <field name="model">ap.applications.model</field>
+        <field name="arch" type="xml">
+        <form string="Applications">
+        <notebook>
+        	<page string="Application Details">
+                    <sheet>
+                    	<group colspan="4" col="4" name="batch">
+                            <field name="ap_batch" />   
+                            <field name="ap_course_id"/>                                                 
+                        </group>
+                        <group colspan="4" col="4" name="batch">
+                            <field name="ap_date" />
+                        </group>
+                    </sheet>
+        	</page> 
+            <page string="Applicant Details">
+            	<sheet>
+                       <group colspan="4" col="2" name="applicant">
+                            <field name="ap_person_id" nolabel="1" />                                                                          
+                        </group>                                        
+                 </sheet>
+             </page>
+             <page string="Previous Institutions Details">
+            	<sheet>
+                	<group colspan="4" col="2" name="institution">
+                        <field name="ap_prevschool_id"/>
+                    </group>                  
+                 </sheet>
+             </page>
+             </notebook>
+           </form>        
+        </field>
+    </record> 
+    
+	<record model='ir.ui.view' id='prevschool_view'>
+        <field name='name'>ap.prevschool.form</field>
+        <field name="model">ap.prevschool.model</field>
+        <field name="arch" type="xml">
+        <form string="PrevSchool">
+                    <sheet>
+                    	<group colspan="4" col="4" name="batch">
+                            <field name="ap_name"/> 
+                            <field name="ap_recognized"/> 
+                            <field name="ap_affiliation" />
+                            <field name="ap_mediumofinstruction" />
+                            <field name="ap_registrationnumber" />                                                
+                        </group>                                       
+                    </sheet>
+                </form>        
+        </field>
+    </record> 
+    
+    <record model='ir.ui.view' id='person_view'>
+        <field name='name'>ap.person.form</field>
+        <field name="model">ap.person.model</field>
+        <field name="arch" type="xml">
+        <form string="Person Details">
+                    <sheet>
+                    	<group colspan="4" col="4" name="batch">
+                    		<field name="ap_persontype"/>
+                            <field name="name"/> 
+                            <field name="middle_name" />
+                            <field name="last_name" />
+                            <field name="mobile" /> 
+                            <field name="birth_date" />
+                            <field name="gender" />
+                            <field name="ap_identity" />
+                            <field name="ap_qualification" />
+                            <field name="ap_income" attrs="{'invisible':[('ap_persontype','=','student')]}" />
+                            <field name="city"/>                                                 
+                        </group>                                       
+                    </sheet>
+                </form>        
+        </field>
+    </record> 
+  </data>
+</openerp>

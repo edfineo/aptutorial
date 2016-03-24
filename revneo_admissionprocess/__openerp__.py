@@ -1,0 +1,30 @@
+# -*- coding: utf-8 -*-
+{
+    'name': "revneo.ap",
+    'summary': """Process of seeking admissions in school, simplified""",
+    'description': """This Module aims to help aspiring application seekers approach the school and apply for admission""",
+    'author': "Kilakarai Mohammed Business Solutions",
+    'website': "http://www.revneo.com",
+    'version': "1.0",
+    'depends': ['openeducat_core','website','website_blog','web'], 
+    'images': [
+        'static/description/openeducat_facility_banner.jpg',
+    ],  
+    'data': [
+        'security/ap_security.xml',
+        'security/ir.model.access.csv',
+        'views/applications_view.xml', 
+        'views/layouts.xml',
+        'views/pages.xml', 
+        'views/assets.xml',  
+        'menu/revneo_admissionprocess_menu.xml',              
+    ],
+       'less': ['static/less/applications.less'],
+       'css': ['static/src/css/base.css'],
+       'qweb': ['static/src/xml/base.xml'],
+        'js': ['static/src/js/chrome.js'],
+        'images': ['static/description/openeducat_core_banner.jpg'],
+    'installable' : True,
+    'auto_install' : False,
+    'application' : True,
+}

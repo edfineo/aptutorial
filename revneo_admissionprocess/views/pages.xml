@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<openerp>
+  <data>
+    <!-- === Application Page === -->
+    <template name="Application" id="website.application" page="True">
+    <t t-call="website.layout">
+    <xpath expr="//div[@id='wrapwrap']/header/div" position="after">
+    <div id="wrap" class="mt16">
+        <div class="container">
+		     <form class="application">
+		     	<div class="row row-lg-8">
+		     		<div class="col col-xs-2">
+			     		<label>Class Applied</label>
+			     	</div>
+			     	<div class="col col-xs-6">
+			     		<input type="text" placeholder="Enter the course you are applying" len="50"></input>
+			     	</div>	
+			     	<br></br>
+			     	 <a href="" class="btn btn-success">Apply</a> 
+			     </div>		     
+		     </form>
+		</div>      
+	</div>
+	</xpath>
+	<div id="wrap">
+	      <div class="container">
+		      <h1>Our Applications</h1>
+		        <ul class="application">
+		          <li>Cloud Hosting 101</li>
+		          <li>Support</li>
+		          <li>Unlimited space</li>
+		        </ul>      
+	              
+	        </div>
+	    </div>
+  	</t>
+      </template>
+      
+      	<record id="application_page_link" model="website.menu">
+		  	<field name="name">Application</field>
+		  	<field name="url">/page/application</field>
+		  	<field name="parent_id" ref="website.main_menu" />
+		  	<field name="sequence" type="int">99</field>
+		</record>
+    </data>
+  </openerp>
