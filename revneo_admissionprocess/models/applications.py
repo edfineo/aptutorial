@@ -18,13 +18,17 @@ class ApApplicationsModel(models.Model):
                 
     ap_number = fields.Integer("Application Number")
     ap_date = fields.Date("Application Date",default=today, required=True) 
-    ap_tc = fields.Boolean("Transfer Certificate", default=False)
+    ap_tc = fields.Boolean("Transfer Certificate Available", default=False)
+    ap_identityavbl = fields.Boolean("Identity Card Available", default=False)
+    ap_addressproofavbl = fields.Boolean("Address Available", default=False)
+    ap_emisidavbl = fields.Boolean("Emis Id Number Available", default=False)
     ap_batch = fields.Selection ( 
         [('start2017', '2017 to 2018'),('start2018', '2018 to 2019')],
         'Batch',   default='start2017', required=True)
      
 
-    ap_course_id = fields.Many2one('op.course','Course Applied', required=True)
+    ap_course_id = fields.Many2one('op.course','Course Last Studied', required=True)
+    ap_course_appliedid = fields.Many2one('op.course','Course Applied')
     ap_prevschool_id = fields.One2many('ap.prevschool.model','ap_prevschoolid','Prev School Studied',required=True)
     ap_person_id = fields.One2many('ap.person.model','ap_personid','Applicant Person Details',required=True)
         
@@ -51,7 +55,7 @@ class ApPrevSchoolModel(models.Model):
         'School Type', default='aided') 
     ap_tccopy = fields.Binary("Transfer Certificate Scanned Copy")
     ap_tccomments = fields.Text("Transfer Certificate Comments")
-    ap_emisid = fields.Char("Emis Number", required=True)
+    ap_emisid = fields.Char("Emis Number", required=True, default=0)
     
 class ApPersonModel(models.Model):  
     
@@ -72,14 +76,13 @@ class ApPersonModel(models.Model):
     ap_identity = fields.Selection(
         [('ac','Aadhar Card'),('pc','PAN Card'),('rc','Ration Card')],'Identity',
         default='ac')
-    ap_identityavbl = fields.Boolean("Identity Card Available", default=False)
     ap_identitycopy = fields.Binary("Identity Card Scanned Copy")
-    ap_identitynumber = fields.Char("Identity Number", required=True)
+    ap_identitynumber = fields.Char("Identity Number", required=True, default=0)
     
     ap_addressproof = fields.Selection(
         [('tb','Telephone Bill'),('eb','Electricity Bill'),('bs','Bank Statement')],'Address',
         default='tb')
-    ap_addressproofavbl = fields.Boolean("Identity Card Available", default=False)
+    ap_addressproofcopy = fields.Binary("Address Proof Scanned Copy")
     
     ap_persontype = fields.Selection(
         [('student','Student'),('parent','Parent'),('grd','Guardian')],'Person Type',
